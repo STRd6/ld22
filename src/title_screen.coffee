@@ -10,6 +10,10 @@ TitleScreen = (I={}) ->
       text: "Space Alone"
       position: Point(App.width, App.height).scale(0.5)
 
+  self.bind 'enter', ->
+    self.add
+      class: "Background"
+
   self.bind 'update', ->
     if keydown.space
       engine.setState MainGame()
