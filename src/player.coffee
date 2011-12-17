@@ -5,7 +5,6 @@ Player = (I={}) ->
     height: 32
     sprite: "guy"
     width: 24
-    walkCycle: 0
     speed: 4
 
   # Inherit from game object
