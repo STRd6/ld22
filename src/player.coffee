@@ -4,7 +4,7 @@ Player = (I={}) ->
     color: "blue"
     height: 32
     sprite: "guy"
-    width: 32
+    width: 24
     walkCycle: 0
     speed: 4
 
