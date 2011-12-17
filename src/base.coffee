@@ -10,6 +10,12 @@ Base = (I={}) ->
   self.bind "update", ->
     I.zIndex = I.y
 
+  self.bind "debugDraw", (canvas) ->
+    # Debug
+    canvas.drawRect
+      bounds: self.bounds()
+      color: "rgba(255, 0, 0, 0.5)"
+
   # We must always return self as the last line
   return self
 
