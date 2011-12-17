@@ -39,8 +39,9 @@
             layer.tiles.each (row, y) ->
               row.each (uuid, x) ->
                 if sprite = spriteLookup[uuid]
-                  # +0.5 for centered coordinates
-                  sprite.draw(canvas, (x + 0.5) * tileWidth, (y + 0.5)* tileHeight)
+                  sprite.draw(canvas, x * tileWidth, y * tileHeight)
+                else
+                  warn "No sprite found for: #{uuid}"
 
   Tilemap = (name, callback, entityCallback) ->
     fromPixieId(App.Tilemaps[name], callback, entityCallback)
