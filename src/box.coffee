@@ -7,7 +7,6 @@ Box = (I={}) ->
   # Inherit from game object
   self = Base(I)
 
-
   # We must always return self as the last line
   return self
 
