@@ -29,7 +29,6 @@ Background = (I={}) ->
         color: STAR_COLORS.rand()
         radius: rand()*2 + 1
 
-
   self.bind 'update', ->
     I.stars.each (star) ->
       star.x = (star.x + I.starVelocity.x).mod I.width
