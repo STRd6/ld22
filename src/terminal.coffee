@@ -10,7 +10,7 @@ Terminal = (I={}) ->
     width: 32
 
   # Inherit from game object
-  self = GameObject(I)
+  self = Base(I)
 
   # Add events and methods here
   self.bind "update", ->
