@@ -7,7 +7,7 @@ TitleScreen = (I={}) ->
 
     canvas.centerText
       color: "white"
-      text: "Count Chocula's Castle"
+      text: "Space Alone"
       position: Point(App.width, App.height).scale(0.5)
 
   # We must always return self as the last line
