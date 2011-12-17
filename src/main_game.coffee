@@ -13,6 +13,8 @@ MainGame = (I={}) ->
       x: (n + 1) * 96
       y: 256
 
+  Music.play "navcom"
+
   # We must always return self as the last line
   return self
 
