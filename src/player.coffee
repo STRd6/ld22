@@ -13,6 +13,7 @@ Player = (I={}) ->
   self.include PlayerMovement
 
   self.bind "update", ->
+    # Print debug info to console
     if justPressed.f2
       console.log engine.find("Wall")
 
