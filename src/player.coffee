@@ -12,6 +12,10 @@ Player = (I={}) ->
 
   self.include PlayerMovement
 
+  self.bind "update", ->
+    if justPressed.f2
+      console.log engine.find("Wall")
+
   # We must always return self as the last line
   return self
 
