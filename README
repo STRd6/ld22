@@ -1,4 +1,12 @@
 
 
-Pixel Editor Console Helpers
+Pixel Editor helpers
+--------------------
+
+# Fill Pure White With Static
+self.eachPixel (pixel, x, y) ->
+  if pixel.color().equal(Color("#FFFFFF"))
+    amount = rand() * 255
+
+    pixel.color(Color(amount, amount, amount))
 
