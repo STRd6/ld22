@@ -13,7 +13,7 @@ Engine.Tilemap = (I, self) ->
   updating = false
   clearObjects = false
 
-  self.bind "preDraw", (canvas) ->
+  self.bind "beforeDraw", (canvas) ->
     map?.draw canvas
 
   self.bind "update", ->
