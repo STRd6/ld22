@@ -1,11 +1,14 @@
+PLAYER_SPRITE = Sprite.loadByName "guy"
+
 Player = (I={}) ->
   # Set some default properties
   Object.reverseMerge I,
     color: "blue"
-    height: 32
-    sprite: "guy"
-    width: 24
+    sprite: PLAYER_SPRITE
     speed: 4
+
+  I.width = 24
+  I.height = 32
 
   # Inherit from game object
   self = Base(I)
