@@ -12,6 +12,9 @@ Terminal = (I={}) ->
   # Inherit from game object
   self = Base(I)
 
+  self.bind "create", ->
+    I.y += 8 # Scoot down a little
+
   # Add events and methods here
   self.bind "update", ->
     if I.age % 4 == 0
