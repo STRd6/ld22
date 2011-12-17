@@ -5,8 +5,11 @@ window.engine = Engine
 
 engine.setState TitleScreen()
 
+DEBUG_DRAW = true
+
 engine.bind 'overlay', (canvas) ->
-  engine.objects().invoke('trigger', 'debugDraw', canvas)
+  if DEBUG_DRAW
+    engine.objects().invoke('trigger', 'debugDraw', canvas)
 
 engine.start()
 
