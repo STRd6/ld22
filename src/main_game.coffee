@@ -12,10 +12,13 @@ MainGame = (I={}) ->
 
       window.playerData ||= {}
 
+      start = engine.find(".start").first()
+      start.destroy()
+
       Object.extend playerData,
         class: "Player"
-        x: App.width/2
-        y: App.height/2
+        x: start.I.x
+        y: start.I.y
 
       player = self.add playerData
 
