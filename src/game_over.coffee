@@ -2,6 +2,7 @@ GameOver = (I={}) ->
   # Set some default properties
   Object.reverseMerge I,
     won: false
+    age: 0
 
   # Inherit from game object
   self = GameState(I)
