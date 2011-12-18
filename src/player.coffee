@@ -1,5 +1,5 @@
 PLAYER_SPRITE = Sprite.loadByName "guy"
-MAX_LEVEL = 3
+MAX_LEVEL = 9
 
 Player = (I={}) ->
   # Set some default properties
