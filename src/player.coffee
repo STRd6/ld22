@@ -4,7 +4,6 @@ MAX_LEVEL = 9
 Player = (I={}) ->
   # Set some default properties
   Object.reverseMerge I,
-    color: "blue"
     sprite: PLAYER_SPRITE
     speed: 4
     level: 1
