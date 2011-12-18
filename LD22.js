@@ -11550,11 +11550,18 @@ PlayerHealth = function(I, self) {
     }
   });
   drawMeter = function(canvas, attribute, color, start) {
-    var height, maxWidth, padding, ratio;
+    var height, maxWidth, padding, ratio, title;
     ratio = I[attribute] / I["" + attribute + "_max"];
     padding = 2;
     maxWidth = 128;
     height = 8;
+    title = attribute.toUpperCase();
+    canvas.font("bold 12px consolas, 'Courier New', 'andale mono', 'lucida console', monospace");
+    canvas.drawText({
+      color: "white",
+      position: start.subtract(Point(canvas.measureText(title) + 10, -10)),
+      text: title
+    });
     canvas.drawRoundRect({
       color: "#FFF",
       x: start.x - padding,
@@ -11586,8 +11593,8 @@ PlayerHealth = function(I, self) {
       return I.oxygen = (I.oxygen + amount).clamp(0, I.oxygen_max);
     },
     drawHealthMeters: function(canvas) {
-      drawMeter(canvas, "health", "#A00", Point(16, 16));
-      return drawMeter(canvas, "oxygen", "#00A", Point(256, 16));
+      drawMeter(canvas, "health", "#A00", Point(128, 16));
+      return drawMeter(canvas, "oxygen", "#00A", Point(412, 16));
     }
   };
 };
