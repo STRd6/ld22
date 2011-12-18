@@ -1,4 +1,6 @@
 TitleScreen = (I={}) ->
+  I.age = 0
+
   # Inherit from game object
   self = GameState(I)
 
@@ -10,11 +12,20 @@ TitleScreen = (I={}) ->
       text: "Space Alone"
       position: Point(App.width, App.height).scale(0.5)
 
+    if I.age % 30 < 24
+      canvas.font("bold 12px consolas, 'Courier New', 'andale mono', 'lucida console', monospace")
+
+      canvas.centerText
+        color: "white"
+        text: "Press Space To Begin"
+        position: Point(App.width, App.height).scale(0.5).add(Point(0, 50))
+
   self.bind 'enter', ->
     self.add
       class: "Background"
 
   self.bind 'update', ->
+    I.age += 1
     if keydown.space
       engine.setState MainGame()
 
