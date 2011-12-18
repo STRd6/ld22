@@ -9,7 +9,7 @@ TitleScreen = (I={}) ->
 
     canvas.centerText
       color: "white"
-      text: "Space Alone"
+      text: "Space Wrench"
       position: Point(App.width, App.height).scale(0.5)
 
     canvas.font("bold 12px consolas, 'Courier New', 'andale mono', 'lucida console', monospace")
