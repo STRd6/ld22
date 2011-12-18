@@ -40,8 +40,6 @@
               row.each (uuid, x) ->
                 if sprite = spriteLookup[uuid]
                   sprite.draw(canvas, x * tileWidth, y * tileHeight)
-                else
-                  warn "No sprite found for: #{uuid}"
 
   Tilemap = (name, callback, entityCallback) ->
     fromPixieId(App.Tilemaps[name], callback, entityCallback)
