@@ -30,6 +30,13 @@ Box = (I={}) ->
         width: (n) ->
           particleSizes.wrap(n)
 
+    engine.add
+      class: "Item"
+      type: "health"
+      sprite: "health"
+      x: I.x
+      y: I.y
+
   self.bind "hit", ->
     self.destroy()
 
