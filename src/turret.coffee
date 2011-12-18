@@ -7,11 +7,21 @@ Turret = (I={}) ->
     width: 32
 
   # Inherit from game object
-  self = Base(I)
+  self = Box(I)
+
+  shoot = ->
+    engine.add
+      class: "Bullet"
+      x: I.x
+      y: I.y
+      velocity: Point.fromAngle(I.facing).scale(5)
 
   # Add events and methods here
   self.bind "update", ->
-    ; # Add update method behavior
+    I.facing = Point.direction(I, playerData)
+
+    if I.age % 30 == 0
+      shoot()
 
   # We must always return self as the last line
   return self
