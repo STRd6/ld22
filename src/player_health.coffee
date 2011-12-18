@@ -41,6 +41,9 @@ PlayerHealth = (I={}, self) ->
       radius: 2
     }
 
+  heal: (amount) ->
+    I.health = (I.health + amount).clamp(0, I.health_max)
+
   drawHealthMeters: (canvas) ->
     drawMeter(canvas, "health", "#A00", Point(16, 16))
     drawMeter(canvas, "oxygen", "#00A", Point(256, 16))
