@@ -8,6 +8,9 @@ Wall = (I={}) ->
   # Inherit from game object
   self = Base(I)
 
+  self.bind "hit", ->
+    Sound.play "ping"
+
   # We must always return self as the last line
   return self
 
