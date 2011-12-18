@@ -30,12 +30,20 @@ Box = (I={}) ->
         width: (n) ->
           particleSizes.wrap(n)
 
-    engine.add
-      class: "Item"
-      type: "health"
-      sprite: "health"
-      x: I.x
-      y: I.y
+    r = rand()
+    if r < 0.5
+      if r < 0.25
+        itemType = "health"
+      else
+        itemType = "oxygen"
+
+    if itemType
+      engine.add
+        class: "Item"
+        sprite: itemType
+        type: itemType
+        x: I.x
+        y: I.y
 
   self.bind "hit", ->
     self.destroy()
