@@ -8,7 +8,6 @@ PlayerHealth = (I={}, self) ->
 
   # Add events and methods here
   self.bind "update", ->
-    I.health = I.health.approach(0, 1)
     I.oxygen = I.oxygen.approach(0, 2)
 
   drawMeter = (canvas, attribute, color, start) ->
