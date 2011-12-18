@@ -9,7 +9,8 @@ Bullet = (I={}) ->
 
   # Add events and methods here
   self.bind "update", ->
-    ; # Add update method behavior
+    I.x += I.velocity.x
+    I.y += I.velocity.y
 
   # We must always return self as the last line
   return self
