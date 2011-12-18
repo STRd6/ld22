@@ -22,7 +22,7 @@ GameOver = (I={}) ->
 
     canvas.centerText
       color: "white"
-      text: "Time: #{(playerData.I.age / 30).toFixed(2)}s"
+      text: "Time: #{(playerData.age / 30).toFixed(2)}s"
       position: Point(App.width, App.height).scale(0.5).add(Point(128, 128))
 
   # We must always return self as the last line
