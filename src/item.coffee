@@ -10,6 +10,10 @@ Item = (I={}) ->
   # Inherit from game object
   self = GameObject(I)
 
+  self.include Flickerable
+
+  self.flicker(30, 5, 0)
+
   # Add events and methods here
   self.bind "update", ->
     if I.age > 30
