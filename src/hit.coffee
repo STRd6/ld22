@@ -8,6 +8,10 @@ Hit = (I={}) ->
   # Inherit from game object
   self = Base(I)
 
+  self.bind "update", ->
+    Collision.collide "Box", self, (box) ->
+      box.trigger "hit"
+
   # We must always return self as the last line
   return self
 
