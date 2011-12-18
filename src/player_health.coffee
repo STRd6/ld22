@@ -10,6 +10,9 @@ PlayerHealth = (I={}, self) ->
   self.bind "update", ->
     I.oxygen = I.oxygen.approach(0, 2)
 
+    if I.oxygen <= 0
+      engine.setState(GameOver(won: false))
+
   drawMeter = (canvas, attribute, color, start) ->
     ratio = I[attribute] / I["#{attribute}_max"]
     padding = 2
