@@ -1,23 +1,21 @@
 PlayerHealth = (I={}, self) ->
   # Set some default properties
   Object.reverseMerge I,
-    maxHealth: 1024
     health: 1024
-    maxOxygen: 1024
+    health_max: 1024
     oxygen: 1024
+    oxygen_max: 1024
 
   # Add events and methods here
   self.bind "update", ->
-    I.health -= 1
-    I.oxygen -= 1
+    I.health = I.health.approach(0, 1)
+    I.oxygen = I.oxygen.approach(0, 2)
 
-  drawMeter = (canvas) ->
-    ratio = I.health / I.maxHealth
+  drawMeter = (canvas, attribute, color, start) ->
+    ratio = I[attribute] / I["#{attribute}_max"]
     padding = 2
     maxWidth = 128
     height = 8
-
-    start = Point(32, 32)
 
     canvas.drawRoundRect
       color: "#FFF"
@@ -27,7 +25,13 @@ PlayerHealth = (I={}, self) ->
       height: height + 2*padding
       radius: 3
 
-    color = "#800"
+    canvas.drawRoundRect {
+      color: "#000"
+      position: start
+      width: maxWidth
+      height
+      radius: 2
+    }
 
     canvas.drawRoundRect {
       color: color
@@ -38,5 +42,5 @@ PlayerHealth = (I={}, self) ->
     }
 
   drawHealthMeters: (canvas) ->
-    drawMeter(canvas)
-
+    drawMeter(canvas, "health", "#A00", Point(16, 16))
+    drawMeter(canvas, "oxygen", "#00A", Point(256, 16))
