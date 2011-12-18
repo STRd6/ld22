@@ -2,6 +2,7 @@ PlayerMovement = (I={}, self) ->
   # Set some default properties
   Object.reverseMerge I,
     walkCycle: 0
+    facing: Point(1, 0)
 
   # Add events and methods here
   self.bind "update", ->
@@ -21,8 +22,8 @@ PlayerMovement = (I={}, self) ->
     else
       I.walkCycle += 1
 
-      facing = movement.norm()
-      I.velocity = facing.scale(I.speed)
+      I.facing = movement.norm()
+      I.velocity = I.facing.scale(I.speed)
 
       I.velocity.x.abs().times ->
         if !engine.collides(self.collisionBounds(I.velocity.x.sign(), 0), self)
