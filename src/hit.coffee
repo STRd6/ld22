@@ -8,6 +8,9 @@ Hit = (I={}) ->
   # Inherit from game object
   self = Base(I)
 
+  self.bind "create", ->
+    Sound.play "hit"
+
   self.bind "update", ->
     Collision.collide "Box", self, (box) ->
       box.trigger "hit"
