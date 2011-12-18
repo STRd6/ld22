@@ -9,9 +9,7 @@ Box = (I={}) ->
 
   particleSizes = [5, 4, 3]
 
-  self.bind "hit", ->
-    self.destroy()
-
+  self.bind "destroy", ->
     engine.add
       class: "Emitter"
       duration: 9
@@ -28,9 +26,12 @@ Box = (I={}) ->
           particleSizes.wrap(n)
         maxSpeed: 50
         velocity: (n) ->
-          Point.fromAngle(Random.angle()).scale(rand(5) + 1).add(push)
+          Point.fromAngle(Random.angle()).scale(rand(5) + 2)
         width: (n) ->
           particleSizes.wrap(n)
+
+  self.bind "hit", ->
+    self.destroy()
 
   # We must always return self as the last line
   return self
