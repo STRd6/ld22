@@ -1,6 +1,6 @@
 MainGame = (I={}) ->
   Object.reverseMerge I,
-    level: "test"
+    level: "level1"
 
   # Inherit from game object
   self = GameState(I)
@@ -18,14 +18,6 @@ MainGame = (I={}) ->
         y: App.height/2
 
       player = self.add playerData
-
-      camera = self.cameras().first()
-      camera.I.cameraBounds = Rectangle
-        x: -Infinity
-        y: -Infinity
-        width: Infinity
-        height: Infinity
-      camera.follow(player, "topdown")
 
   self.bind 'overlay', (canvas) ->
     if player = engine.find("Player").first()
