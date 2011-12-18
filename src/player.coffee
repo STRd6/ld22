@@ -41,7 +41,7 @@ Player = (I={}) ->
     else
       I.items[itemType] = true
 
-  self.bind "hit"
+  self.bind "hit", ->
     I.health -= 64
     Sound.play "hurt"
 
