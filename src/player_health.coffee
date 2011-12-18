@@ -18,6 +18,14 @@ PlayerHealth = (I={}, self) ->
     padding = 2
     maxWidth = 128
     height = 8
+    title = attribute.toUpperCase()
+
+    canvas.font("bold 12px consolas, 'Courier New', 'andale mono', 'lucida console', monospace")
+
+    canvas.drawText
+      color: "white"
+      position: start.subtract(Point(canvas.measureText(title) + 10, -10))
+      text: title
 
     canvas.drawRoundRect
       color: "#FFF"
@@ -49,5 +57,5 @@ PlayerHealth = (I={}, self) ->
     I.oxygen = (I.oxygen + amount).clamp(0, I.oxygen_max)
 
   drawHealthMeters: (canvas) ->
-    drawMeter(canvas, "health", "#A00", Point(16, 16))
-    drawMeter(canvas, "oxygen", "#00A", Point(256, 16))
+    drawMeter(canvas, "health", "#A00", Point(128, 16))
+    drawMeter(canvas, "oxygen", "#00A", Point(412, 16))
