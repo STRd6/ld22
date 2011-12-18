@@ -10,6 +10,8 @@ Box = (I={}) ->
   particleSizes = [5, 4, 3]
 
   self.bind "destroy", ->
+    Sound.play "break"
+
     engine.add
       class: "Emitter"
       duration: 9
