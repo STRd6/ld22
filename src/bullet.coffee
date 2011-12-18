@@ -1,13 +1,11 @@
 Bullet = (I={}) ->
   # Set some default properties
   Object.reverseMerge I,
-    color: "blue"
-    height: 32
-    sprite: "placeholder"
-    width: 32
+    color: "red"
+    radius: 6
 
   # Inherit from game object
-  self = base(I)
+  self = Base(I)
 
   # Add events and methods here
   self.bind "update", ->
@@ -15,3 +13,4 @@ Bullet = (I={}) ->
 
   # We must always return self as the last line
   return self
+
