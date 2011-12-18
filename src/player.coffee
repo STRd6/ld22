@@ -41,6 +41,10 @@ Player = (I={}) ->
     else
       I.items[itemType] = true
 
+  self.bind "hit"
+    I.health -= 64
+    Sound.play "hurt"
+
   # We must always return self as the last line
   return self
 
