@@ -6,6 +6,7 @@ Player = (I={}) ->
     color: "blue"
     sprite: PLAYER_SPRITE
     speed: 4
+    items: {}
 
   I.width = 24
   I.height = 32
@@ -20,6 +21,17 @@ Player = (I={}) ->
     # Print debug info to console
     if justPressed.f2
       console.log engine.find("Wall")
+
+    if justPressed.space
+      p = I.facing.scale(16)
+      if I.items.wrench # Club
+        engine.add
+          class: "Hit"
+          x: I.x + p.x
+          y: I.y + p.y
+
+  self.bind "pickup", (itemType) ->
+    I.items[itemType] = true
 
   # We must always return self as the last line
   return self
