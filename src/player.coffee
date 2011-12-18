@@ -50,6 +50,9 @@ Player = (I={}) ->
     I.health -= 64
     Sound.play "hurt"
 
+    if I.health <= 0
+      engine.setState(GameOver(won: false))
+
   # We must always return self as the last line
   return self
 
