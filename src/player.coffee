@@ -1,4 +1,5 @@
 PLAYER_SPRITE = Sprite.loadByName "guy"
+MAX_LEVEL = 3
 
 Player = (I={}) ->
   # Set some default properties
@@ -37,8 +38,11 @@ Player = (I={}) ->
     else if itemType == "oxygen"
       self.oxygenate(512)
     else if itemType == "teleport"
-      nextLevel = ["level2"].rand()
-      engine.setState(MainGame(level: nextLevel))
+      I.level += 1
+      if I.level <= MAX_LEVEL
+        engine.setState(MainGame(level: "level#{I.level}"))
+      else
+        engine.setState(GameOver(won: true))
     else
       I.items[itemType] = true
 
