@@ -14,6 +14,7 @@ Player = (I={}) ->
   self = Base(I)
 
   self.include PlayerMovement
+  self.include PlayerHealth
 
   self.bind "update", ->
     # Print debug info to console

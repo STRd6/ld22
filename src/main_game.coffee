@@ -14,6 +14,10 @@ MainGame = (I={}) ->
         x: App.width/2
         y: App.height/2
 
+  self.bind 'overlay', (canvas) ->
+    if player = engine.find("Player").first()
+      player.drawHealthMeters(canvas)
+
   # We must always return self as the last line
   return self
 
