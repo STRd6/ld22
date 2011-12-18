@@ -33,7 +33,7 @@ Box = (I={}) ->
           particleSizes.wrap(n)
 
     r = rand()
-    if r < 0.5
+    if r < 0.75
       if r < 0.25
         itemType = "health"
       else
