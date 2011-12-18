@@ -26,6 +26,11 @@ MainGame = (I={}) ->
     if player = engine.find("Player").first()
       player.drawHealthMeters(canvas)
 
+  self.bind 'update', (canvas) ->
+    Collision.collide "Player, Wall", "Bullet", (object, bullet) ->
+      object.trigger "hit"
+      bullet.destroy()
+
   # We must always return self as the last line
   return self
 
