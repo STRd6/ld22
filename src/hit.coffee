@@ -12,7 +12,7 @@ Hit = (I={}) ->
     Sound.play "hit"
 
   self.bind "update", ->
-    Collision.collide "Box", self, (box) ->
+    Collision.collide "Box, Turret", self, (box) ->
       box.trigger "hit"
 
   # We must always return self as the last line
