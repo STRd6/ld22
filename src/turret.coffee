@@ -25,9 +25,10 @@ Turret = (I={}) ->
     if I.age % 30 == 0
       shoot()
 
-  self.bind "draw", ->
-    canvas.withTransform Matrix.rotation(I.facing), ->
-      turretTop.draw canvas, 0, 0
+  self.bind "draw", (canvas) ->
+    canvas.withTransform Matrix.translation(-16, -16), ->
+      canvas.withTransform Matrix.rotation(I.facing, Point(16, 16)), ->
+        turretTop.draw canvas, 0, 0
 
   # We must always return self as the last line
   return self
