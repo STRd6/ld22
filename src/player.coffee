@@ -11,7 +11,7 @@ Player = (I={}) ->
     items: {}
 
   I.width = 24
-  I.height = 32
+  I.height = 24
 
   # Inherit from game object
   self = Base(I)
