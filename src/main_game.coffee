@@ -5,8 +5,6 @@ MainGame = (I={}) ->
   # Inherit from game object
   self = GameState(I)
 
-  Music.play "navcom"
-
   self.bind "enter", ->
     engine.loadMap I.level, ->
       self.add
@@ -19,7 +17,15 @@ MainGame = (I={}) ->
         x: App.width/2
         y: App.height/2
 
-      self.add playerData
+      player = self.add playerData
+
+      camera = self.cameras().first()
+      camera.I.cameraBounds = Rectangle
+        x: -Infinity
+        y: -Infinity
+        width: Infinity
+        height: Infinity
+      camera.follow(player, "topdown")
 
   self.bind 'overlay', (canvas) ->
     if player = engine.find("Player").first()
