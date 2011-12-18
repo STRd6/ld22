@@ -6,6 +6,7 @@ Player = (I={}) ->
     color: "blue"
     sprite: PLAYER_SPRITE
     speed: 4
+    level: 1
     items: {}
 
   I.width = 24
