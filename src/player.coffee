@@ -33,8 +33,10 @@ Player = (I={}) ->
   self.bind "pickup", (itemType) ->
     if itemType == "health"
       self.heal(256)
-    if itemType == "oxygen"
+    else if itemType == "oxygen"
       self.oxygenate(512)
+    else if itemType == "teleport"
+      engine.setState(MainGame(level: "test"))
     else
       I.items[itemType] = true
 
