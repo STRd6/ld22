@@ -12,6 +12,9 @@ Bullet = (I={}) ->
     I.x += I.velocity.x
     I.y += I.velocity.y
 
+  self.bind "create", ->
+    Sound.play "pew"
+
   # We must always return self as the last line
   return self
 
