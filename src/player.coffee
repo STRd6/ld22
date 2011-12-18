@@ -31,7 +31,10 @@ Player = (I={}) ->
           y: I.y + p.y
 
   self.bind "pickup", (itemType) ->
-    I.items[itemType] = true
+    if itemType == "health"
+      self.heal(256)
+    else
+      I.items[itemType] = true
 
   # We must always return self as the last line
   return self
