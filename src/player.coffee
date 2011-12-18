@@ -36,7 +36,8 @@ Player = (I={}) ->
     else if itemType == "oxygen"
       self.oxygenate(512)
     else if itemType == "teleport"
-      engine.setState(MainGame(level: "test"))
+      nextLevel = ["level2"].rand()
+      engine.setState(MainGame(level: nextLevel))
     else
       I.items[itemType] = true
 
