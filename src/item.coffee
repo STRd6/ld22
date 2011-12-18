@@ -5,14 +5,17 @@ Item = (I={}) ->
     width: 32
     type: "wrench"
 
+  I.sprite ||= Sprite.loadByName(I.type)
+
   # Inherit from game object
   self = GameObject(I)
 
   # Add events and methods here
   self.bind "update", ->
-    Collision.collide "Player", self, (player) ->
-      player.trigger "pickup", I.type
-      I.active = false
+    if I.age > 30
+      Collision.collide "Player", self, (player) ->
+        player.trigger "pickup", I.type
+        I.active = false
 
   # We must always return self as the last line
   return self
