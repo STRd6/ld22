@@ -24,7 +24,7 @@ Player = (I={}) ->
       console.log engine.find("Wall")
 
     if justPressed.space
-      p = I.facing.scale(16)
+      p = I.facing.scale(8)
       if I.items.wrench # Club
         engine.add
           class: "Hit"
