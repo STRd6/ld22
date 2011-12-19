@@ -11384,7 +11384,7 @@ Hit = function(I) {
   Object.reverseMerge(I, {
     duration: 4,
     color: "rgba(255, 255, 255, 0.5)",
-    radius: 8
+    radius: 12
   });
   self = Base(I);
   self.bind("create", function() {
@@ -11488,7 +11488,7 @@ Player = function(I) {
     var p;
     if (justPressed.f2) console.log(engine.find("Wall"));
     if (justPressed.space) {
-      p = I.facing.scale(16);
+      p = I.facing.scale(8);
       if (I.items.wrench) {
         return engine.add({
           "class": "Hit",
