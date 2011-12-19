@@ -3,7 +3,7 @@ Hit = (I={}) ->
   Object.reverseMerge I,
     duration: 4
     color: "rgba(255, 255, 255, 0.5)"
-    radius: 8
+    radius: 12
 
   # Inherit from game object
   self = Base(I)
